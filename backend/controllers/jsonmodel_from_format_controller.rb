@@ -1,8 +1,8 @@
 class ArchivesSpaceService < Sinatra::Base
 
-  Endpoint.post('/plugins/jsonmodel_from_format/:type/:format') 
+  Endpoint.post('/repositories/:repo_id/jsonmodel_from_format/:type/:format')
     .description("Convert :type by :format into a JSONModel equivalent")
-    .params(["type", String, "Type"], ["format", String, "Format"])
+    .params(["type", String, "Type"], ["format", String, "Format"], ["repo_id", :repo_id])
     .permissions([:view_all_records])
     .returns([200, "Array of object :types"]) \
   do
