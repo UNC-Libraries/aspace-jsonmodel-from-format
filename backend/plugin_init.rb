@@ -26,7 +26,7 @@ unless AppConfig.has_key?(:converter_tree)
     },
     resource: {
       ead: {
-        converter_class: EADConverter,
+        converter_class: UncEADConverter,
         parse_method: :parse_as_xml,
       },
       marcxml: {
