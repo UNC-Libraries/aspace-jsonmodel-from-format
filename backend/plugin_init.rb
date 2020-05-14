@@ -29,6 +29,10 @@ unless AppConfig.has_key?(:converter_tree)
         converter_class: UncEADConverter,
         parse_method: :parse_as_xml,
       },
+      old_ead: {
+          converter_class: EADConverter,
+          parse_method: :parse_as_xml,
+      },
       marcxml: {
         converter_class: MarcXMLConverter,
         parse_method: :parse_as_xml,
