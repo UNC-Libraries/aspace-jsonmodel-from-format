@@ -42,13 +42,21 @@ The examples assume that commands are run from the `aspace-jsonmodel-from-format
 **EAD**
 
 ```bash
-# get the jsonmodel representation of examples/ead.xml
+# get the jsonmodel representation of examples/ead.xml using ASpace's default EADConverter
 curl \
   -H "Content-Type: text/xml" \
   -H "X-ArchivesSpace-Session: $TOKEN" \
   -X POST \
   -d @examples/ead.xml \
   "http://localhost:8089/repositories/2/jsonmodel_from_format/resource/ead" > ead.json
+
+# get the jsonmodel representation of examples/ead.xml using UNC's custom EADConverter
+curl \
+  -H "Content-Type: text/xml" \
+  -H "X-ArchivesSpace-Session: $TOKEN" \
+  -X POST \
+  -d @examples/ead.xml \
+  "http://localhost:8089/repositories/2/jsonmodel_from_format/resource/unc_ead" > unc_ead.json
 
 # import it by sending it to the batch_imports endpoint
 curl \
