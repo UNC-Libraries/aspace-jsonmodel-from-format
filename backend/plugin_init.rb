@@ -25,10 +25,6 @@ unless AppConfig.has_key?(:converter_tree)
       },
     },
     resource: {
-      unc_ead: {
-        converter_class: UncEADConverter,
-        parse_method: :parse_as_xml,
-      },
       ead: {
           converter_class: EADConverter,
           parse_method: :parse_as_xml,
