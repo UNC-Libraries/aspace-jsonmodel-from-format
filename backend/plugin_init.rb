@@ -38,7 +38,7 @@ unless AppConfig.has_key?(:converter_tree)
           parse_method: :parse_as_xml,
       },
       marcxml: {
-        converter_class: MarcXMLConverter,
+        converter_class: MarcXMLBibConverter,
         parse_method: :parse_as_xml,
       },
     },
