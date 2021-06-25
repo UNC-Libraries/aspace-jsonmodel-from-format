@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+#
 class ArchivesSpaceService < Sinatra::Base
 
   Endpoint.post('/repositories/:repo_id/jsonmodel_from_format/:type/:format')
-    .description("Convert :type by :format into a JSONModel equivalent")
-    .params(["type", String, "Type"], ["format", String, "Format"], ["repo_id", :repo_id])
-    .permissions([:view_all_records])
-    .returns([200, "Array of object :types"]) \
+          .description("Convert :type by :format into a JSONModel equivalent")
+          .params(["type", String, "Type"], ["format", String, "Format"], ["repo_id", :repo_id])
+          .permissions([:view_all_records])
+          .returns([200, "Array of object :types"]) \
   do
     # TODO: better error handling
     converter_tree  = AppConfig[:converter_tree]
@@ -15,5 +17,4 @@ class ArchivesSpaceService < Sinatra::Base
     content_type :json
     converter.run # returns json
   end
-
 end
