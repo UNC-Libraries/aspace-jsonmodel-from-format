@@ -35,9 +35,17 @@ unless AppConfig.has_key?(:converter_tree)
       }
     },
     resource: {
+      unc_ead: {
+          converter_class: UncEADConverter,
+          parse_method: :parse_as_xml,
+      },
+      simple_unc_ead: {
+          converter_class: SimpleUncEADConverter,
+          parse_method: :parse_as_xml,
+      },
       ead: {
-        converter_class: EADConverter,
-        parse_method: :parse_as_xml
+          converter_class: EADConverter,
+          parse_method: :parse_as_xml,
       },
       marcxml: {
         converter_class: MarcXMLBibConverter,

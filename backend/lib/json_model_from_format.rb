@@ -36,7 +36,10 @@ module ArchivesSpace
     end
 
     def parse_as_xml
-      Nokogiri::XML(@content).to_s
+      # Replace '&' without replacing existing escaped characters
+      content = @content.gsub(/&(?!\w+;|#\d+;)/, '&amp;')
+
+      Nokogiri::XML::Reader(content).source
     end
 
     # from the aspace source =)
