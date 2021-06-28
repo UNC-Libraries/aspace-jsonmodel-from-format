@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+class ArchivesSpaceService < Sinatra::Base
   Endpoint.post('/repositories/:repo_id/jsonmodel_from_format/:type/:format')
     .description("Convert :type by :format into a JSONModel equivalent")
     .params(["type", String, "Type"], ["format", String, "Format"], ["repo_id", :repo_id])
